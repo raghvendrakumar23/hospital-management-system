@@ -1,0 +1,48 @@
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:70px 8%;
+    background:#f4f9ff;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.hero-left h1{
+    font-size:50px;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.hero-left p{
+    font-size:18px;
+    color:#555;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.hero-left button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.hero-left button:hover{
+    background:#0056d2;
+}
+
+.hero-right{
+    width:45%;
+}
+
+.hero-right img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
