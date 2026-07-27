@@ -1,31 +1,44 @@
 import "./Hero.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Hero() {
+export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="hero">
+
       <div className="hero-left">
-        <h1>Your Health, Our Priority</h1>
+
+        <h1>
+          Your Health,
+          <br />
+          Our Priority
+        </h1>
 
         <p>
           Welcome to MediCare Hospital Management System.
-          Book appointments, manage patients, doctors and
-          hospital services easily.
+          Book appointments, manage patients and consult
+          experienced doctors with ease.
         </p>
 
-        <Link to="/register">
-          <button>Book Appointment</button>
-        </Link>
+        <button
+          className="hero-btn"
+          onClick={() => navigate("/login")}
+        >
+          Book Appointment
+        </button>
+
       </div>
 
       <div className="hero-right">
+
         <img
-          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600"
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900"
           alt="Doctor"
         />
+
       </div>
+
     </section>
   );
 }
-
-export default Hero;

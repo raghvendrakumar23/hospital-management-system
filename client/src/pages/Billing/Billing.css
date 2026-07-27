@@ -1,0 +1,192 @@
+.billing-page {
+  padding: 30px;
+  color: white;
+}
+
+.billing-page h1 {
+  font-size: 34px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Form */
+
+.billing-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+
+  margin-bottom: 30px;
+
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  padding: 25px;
+
+  border-radius: 20px;
+}
+
+.billing-form input,
+.billing-form select {
+
+  height: 50px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.15);
+
+  color: white;
+
+  padding: 0 15px;
+
+  font-size: 15px;
+}
+
+.billing-form input::placeholder{
+  color:#dbeafe;
+}
+
+.billing-form select option{
+  color:black;
+}
+
+.billing-form button{
+
+  height:50px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+  color:white;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+
+  transition:.3s;
+}
+
+.billing-form button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Table */
+
+.billing-table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  overflow:hidden;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,.10);
+
+  backdrop-filter:blur(20px);
+
+  color:white;
+}
+
+.billing-table thead{
+
+  background:rgba(255,255,255,.15);
+}
+
+.billing-table th{
+
+  padding:18px;
+
+  text-align:left;
+}
+
+.billing-table td{
+
+  padding:18px;
+
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.billing-table tbody tr{
+
+  transition:.3s;
+}
+
+.billing-table tbody tr:hover{
+
+  background:rgba(255,255,255,.08);
+}
+
+/* Status */
+
+.billing-table td:nth-child(4){
+
+  font-weight:600;
+}
+
+
+
+.delete-btn{
+
+  width:42px;
+
+  height:42px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#ef4444;
+
+  color:white;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.delete-btn:hover{
+
+  background:#dc2626;
+
+  transform:scale(1.08);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.billing-form{
+
+grid-template-columns:1fr;
+
+}
+
+.billing-table{
+
+display:block;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
+}
+
+}

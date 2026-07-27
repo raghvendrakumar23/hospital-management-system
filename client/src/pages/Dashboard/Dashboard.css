@@ -1,0 +1,25 @@
+.dashboard{
+
+    width:100%;
+}
+
+.dashboard-header{
+
+    margin-bottom:30px;
+}
+
+.dashboard-header h1{
+
+    color:white;
+
+    font-size:38px;
+
+    font-weight:700;
+}
+
+.dashboard-header p{
+
+    color:#cbd5e1;
+
+    margin-top:8px;
+}

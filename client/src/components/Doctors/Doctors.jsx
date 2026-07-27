@@ -1,53 +1,107 @@
 import "./Doctors.css";
+import { useState, useEffect } from "react";
+import { FaPlus, FaSearch, FaEdit, FaTrash } from "react-icons/fa";
+import AddDoctorModal from "../../components/AddDoctorModal/AddDoctorModal";
 
-function Doctors() {
+export default function Doctors() {
+  const [search, setSearch] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
-const doctors = [
-{
-name:"Dr. Rajesh Kumar",
-specialist:"Cardiologist"
-},
-{
-name:"Dr. Priya Sharma",
-specialist:"Neurologist"
-},
-{
-name:"Dr. Aman Verma",
-specialist:"Orthopedic"
+  const [doctors, setDoctors] = useState(() => {
+    const savedDoctors = localStorage.getItem("doctors");
+
+    return savedDoctors
+      ? JSON.parse(savedDoctors)
+      : [
+          {
+            id: 1,
+            name: "Dr. Raj Sharma",
+            department: "Cardiology",
+            experience: "10 Years",
+            phone: "9876543210",
+          },
+          {
+            id: 2,
+            name: "Dr. Priya Singh",
+            department: "Neurology",
+            experience: "7 Years",
+            phone: "9876543211",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("doctors", JSON.stringify(doctors));
+  }, [doctors]);
+
+  const filteredDoctors = doctors.filter((doctor) =>
+    doctor.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="doctors-page">
+      <div className="doctor-header">
+        <h1>Doctors</h1>
+
+        <button
+          className="add-btn"
+          onClick={() => setOpenModal(true)}
+        >
+          <FaPlus />
+          Add Doctor
+        </button>
+      </div>
+
+      <div className="search-box-doctor">
+        <FaSearch />
+
+        <input
+          type="text"
+          placeholder="Search doctor..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <table className="doctor-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Experience</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {filteredDoctors.map((doctor) => (
+            <tr key={doctor.id}>
+              <td>{doctor.name}</td>
+              <td>{doctor.department}</td>
+              <td>{doctor.experience}</td>
+              <td>{doctor.phone}</td>
+
+              <td>
+                <button className="edit-btn">
+                  <FaEdit />
+                </button>
+
+                <button className="delete-btn">
+                  <FaTrash />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <AddDoctorModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        doctors={doctors}
+        setDoctors={setDoctors}
+      />
+    </div>
+  );
 }
-];
-
-return(
-<section className="doctors">
-
-<h2>Our Doctors</h2>
-
-<div className="doctor-container">
-
-{
-doctors.map((doctor,index)=>(
-
-<div className="doctor-card" key={index}>
-
-<img
-src={`https://ui-avatars.com/api/?name=${doctor.name}&background=0D6EFD&color=fff&size=256`}
-alt={doctor.name}
-/>
-
-<h3>{doctor.name}</h3>
-
-<p>{doctor.specialist}</p>
-
-</div>
-
-))
-}
-
-</div>
-
-</section>
-)
-
-}
-
-export default Doctors;

@@ -1,39 +1,76 @@
 import "./Services.css";
+import {
+  FaUserMd,
+  FaHeartbeat,
+  FaAmbulance,
+  FaFlask,
+  FaNotesMedical,
+  FaCapsules,
+} from "react-icons/fa";
 
-function Services() {
+export default function Services() {
   const services = [
     {
-      title: "Appointment Booking",
-      desc: "Book appointments with doctors easily."
+      icon: <FaUserMd />,
+      title: "Expert Doctors",
+      desc: "Highly qualified specialists available for every department.",
     },
     {
-      title: "Qualified Doctors",
-      desc: "Experienced specialists for every department."
+      icon: <FaHeartbeat />,
+      title: "Cardiology",
+      desc: "Advanced heart care with modern medical technology.",
     },
     {
-      title: "Emergency Care",
-      desc: "24×7 emergency medical support."
+      icon: <FaAmbulance />,
+      title: "Emergency",
+      desc: "24/7 emergency ambulance and trauma services.",
     },
     {
-      title: "Medical Records",
-      desc: "Secure patient history and reports."
-    }
+      icon: <FaFlask />,
+      title: "Laboratory",
+      desc: "Fast and accurate pathology & diagnostic tests.",
+    },
+    {
+      icon: <FaNotesMedical />,
+      title: "Health Checkup",
+      desc: "Complete body health packages at affordable prices.",
+    },
+    {
+      icon: <FaCapsules />,
+      title: "Pharmacy",
+      desc: "All medicines available with certified pharmacists.",
+    },
   ];
 
   return (
     <section className="services">
+
       <h2>Our Services</h2>
 
-      <div className="service-container">
-        {services.map((service, index) => (
+      <p className="sub-title">
+        We provide world-class healthcare services with experienced doctors.
+      </p>
+
+      <div className="service-grid">
+
+        {services.map((item, index) => (
+
           <div className="service-card" key={index}>
-            <h3>{service.title}</h3>
-            <p>{service.desc}</p>
+
+            <div className="service-icon">
+              {item.icon}
+            </div>
+
+            <h3>{item.title}</h3>
+
+            <p>{item.desc}</p>
+
           </div>
+
         ))}
+
       </div>
+
     </section>
   );
 }
-
-export default Services;

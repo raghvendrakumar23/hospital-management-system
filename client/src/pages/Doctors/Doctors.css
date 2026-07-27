@@ -1,0 +1,85 @@
+.doctors-page {
+  padding: 25px;
+}
+
+.doctor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.doctor-header h1 {
+  color: white;
+  font-size: 32px;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-box-doctor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(20px);
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+}
+
+.search-box-doctor input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.doctor-table th,
+.doctor-table td {
+  padding: 18px;
+  color: white;
+}
+
+.doctor-table thead {
+  background: rgba(255,255,255,.12);
+}
+
+.edit-btn,
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #2563eb;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background: #ef4444;
+}

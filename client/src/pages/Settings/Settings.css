@@ -1,0 +1,44 @@
+.settings-page{
+    padding:30px;
+    color:white;
+}
+
+.settings-page h1{
+    margin-bottom:25px;
+}
+
+.settings-card{
+    max-width:600px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.settings-card input{
+    height:50px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    padding:0 15px;
+    background:rgba(255,255,255,.15);
+    color:white;
+}
+
+.settings-card button{
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.settings-card button:hover{
+    background:#1d4ed8;
+}

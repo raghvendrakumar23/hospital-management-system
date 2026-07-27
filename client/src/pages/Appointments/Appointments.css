@@ -1,0 +1,175 @@
+.appointments-page {
+  padding: 30px;
+  color: white;
+}
+
+.appointments-page h1 {
+  font-size: 34px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Form */
+
+.appointment-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.appointment-form input {
+  height: 50px;
+  padding: 0 15px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.15);
+
+  color: white;
+  font-size: 15px;
+}
+
+.appointment-form input::placeholder {
+  color: #dbeafe;
+}
+
+.appointment-form button {
+  height: 50px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(135deg,#2563eb,#06b6d4);
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  transition: .3s;
+}
+
+.appointment-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Table */
+
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  color: white;
+}
+
+.appointment-table thead {
+  background: rgba(255,255,255,.15);
+}
+
+.appointment-table th {
+  padding: 18px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.appointment-table td {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.appointment-table tbody tr {
+  transition: .3s;
+}
+
+.appointment-table tbody tr:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* Status */
+
+.status-pending {
+  background: #f59e0b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.status-completed {
+  background: #22c55e;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.status-cancelled {
+  background: #ef4444;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* Delete Button */
+
+.delete-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #ef4444;
+  color: white;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.08);
+  background: #dc2626;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .appointment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+}
