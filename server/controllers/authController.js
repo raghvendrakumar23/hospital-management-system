@@ -6,6 +6,8 @@ import jwt from "jsonwebtoken";
 
 export const registerUser = async (req, res) => {
   try {
+    console.log("registerUser called");
+
     const { name, email, phone, password } = req.body;
 
     if (!name || !email || !phone || !password) {
@@ -32,6 +34,9 @@ export const registerUser = async (req, res) => {
       phone,
       password: hashedPassword,
     });
+
+    console.log( user );
+    console.log("After create");
 
     res.status(201).json({
       success: true,

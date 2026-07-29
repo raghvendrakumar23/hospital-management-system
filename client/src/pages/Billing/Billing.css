@@ -190,3 +190,82 @@ white-space:nowrap;
 }
 
 }
+
+/* ================= Payment Method ================= */
+
+.payment-method{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+}
+
+.payment-cash{
+    color:#22c55e;
+}
+
+.payment-upi{
+    color:#3b82f6;
+}
+
+.payment-card{
+    color:#f59e0b;
+}
+
+.payment-bank{
+    color:#8b5cf6;
+}
+
+.payment-insurance{
+    color:#ec4899;
+}
+
+/* ================= Status Badge ================= */
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.status.paid{
+    background:rgba(34,197,94,.2);
+    color:#22c55e;
+}
+
+.status.pending{
+    background:rgba(245,158,11,.2);
+    color:#f59e0b;
+}
+
+/* ================= Generate Invoice Button ================= */
+
+.invoice-btn{
+    border:none;
+    background:#10b981;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-right:8px;
+    transition:.3s;
+}
+
+.invoice-btn:hover{
+    background:#059669;
+    transform:scale(1.05);
+}
+
+/* ================= Payment Select ================= */
+
+.billing-form select{
+    cursor:pointer;
+}
+
+.billing-form select:focus,
+.billing-form input:focus{
+    border:1px solid #3b82f6;
+    box-shadow:0 0 10px rgba(59,130,246,.3);
+}

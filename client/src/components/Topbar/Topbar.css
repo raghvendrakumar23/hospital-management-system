@@ -1,14 +1,13 @@
 .topbar{
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     margin-bottom:35px;
 }
 
-.search-box{
+/* ================= Search ================= */
 
+.search-box{
     width:420px;
     height:55px;
 
@@ -22,20 +21,18 @@
     background:rgba(255,255,255,.12);
 
     box-shadow:0 8px 25px rgba(0,0,0,.15);
-    
+
     backdrop-filter:blur(18px);
 
     border:1px solid rgba(255,255,255,.18);
 }
 
 .search-icon{
-
     color:white;
     margin-right:15px;
 }
 
 .search-box input{
-
     width:100%;
 
     border:none;
@@ -49,19 +46,24 @@
 }
 
 .search-box input::placeholder{
-
     color:#dbeafe;
 }
 
-.topbar-right{
+/* ================= Right Section ================= */
 
+.topbar-right{
     display:flex;
     align-items:center;
     gap:25px;
 }
 
-.notification{
+/* ================= Notification ================= */
 
+.notification{
+    position:relative;
+}
+
+.notification-icon{
     width:55px;
     height:55px;
 
@@ -81,18 +83,20 @@
 
     color:white;
 
-    position:relative;
-
     cursor:pointer;
+
+    transition:.3s;
 }
 
-.notification svg{
+.notification-icon:hover{
+    transform:translateY(-2px);
+}
 
+.notification-icon svg{
     font-size:20px;
 }
 
 .badge{
-
     position:absolute;
 
     top:10px;
@@ -101,7 +105,7 @@
     width:18px;
     height:18px;
 
-    background:red;
+    background:#ff3b30;
 
     color:white;
 
@@ -112,10 +116,66 @@
     align-items:center;
 
     font-size:11px;
+    font-weight:bold;
 }
 
-.profile{
+.notification-dropdown{
+    position:absolute;
 
+    top:0;
+    right:65px;
+
+    width:300px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    z-index:999;
+}
+
+.notification-dropdown h4{
+    color:white;
+    margin-bottom:12px;
+}
+
+.notification-item{
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:12px;
+
+    margin:8px 0;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.notification-item:hover{
+    background:rgba(255,255,255,.18);
+    transform:translateX(5px);
+}
+
+/* ================= Profile ================= */
+
+.profile{
+    position:relative;
+    color:white;
+}
+
+.profile-card{
     display:flex;
     align-items:center;
 
@@ -133,22 +193,91 @@
 
     box-shadow:0 8px 25px rgba(0,0,0,.15);
 
-    color:white;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.profile-card:hover{
+    transform:translateY(-2px);
 }
 
 .avatar{
-
     font-size:42px;
 }
 
-.profile h4{
-
+.profile-card h4{
     font-size:16px;
+    margin:0;
 }
 
-.profile p{
-
+.profile-card p{
     font-size:13px;
-
     color:#dbeafe;
+    margin:2px 0 0;
+}
+
+/* ================= Profile Dropdown ================= */
+
+.profile-dropdown{
+
+    position:absolute;
+
+    top:70px;
+    right:0;
+
+    width:240px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    color:white;
+
+    z-index:999;
+}
+
+.profile-dropdown h4{
+    margin-bottom:4px;
+}
+
+.profile-dropdown p{
+    color:#dbeafe;
+    font-size:13px;
+}
+
+.profile-dropdown hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.2);
+    margin:12px 0;
+}
+
+.profile-item{
+    padding:10px 12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.profile-item:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.logout{
+    color:#ffb3b3;
+}
+
+.logout:hover{
+    background:rgba(255,0,0,.15);
 }

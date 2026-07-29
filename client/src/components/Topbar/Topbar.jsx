@@ -12,6 +12,15 @@ export default function Topbar() {
     name: "Administrator",
   });
 
+  const [showNotification, setShowNotification] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+
+  const [notifications] = useState([
+    "🩺 New patient registered",
+    "📅 Appointment booked",
+    "👨‍⚕️ Doctor added successfully",
+  ]);
+
   useEffect(() => {
     const loggedUser = localStorage.getItem("user");
 
@@ -19,6 +28,12 @@ export default function Topbar() {
       setUser(JSON.parse(loggedUser));
     }
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
 
   return (
     <header className="topbar">
@@ -34,19 +49,80 @@ export default function Topbar() {
 
       <div className="topbar-right">
 
+        {/* Notification */}
+
         <div className="notification">
-          <FaBell />
-          <span className="badge">3</span>
+
+          <div
+            className="notification-icon"
+            onClick={() => {
+              setShowNotification(!showNotification);
+              setShowProfile(false);
+            }}
+          >
+            <FaBell />
+            <span className="badge">{notifications.length}</span>
+          </div>
+
+          {showNotification && (
+            <div className="notification-dropdown">
+              <h4>Notifications</h4>
+
+              {notifications.map((item, index) => (
+                <div className="notification-item" key={index}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          )}
+
         </div>
+
+        {/* Profile */}
 
         <div className="profile">
 
-          <FaUserCircle className="avatar" />
+          <div
+            className="profile-card"
+            onClick={() => {
+              setShowProfile(!showProfile);
+              setShowNotification(false);
+            }}
+          >
+            <FaUserCircle className="avatar" />
 
-          <div>
-            <h4>{user.name}</h4>
-            <p>Administrator</p>
+            <div>
+              <h4>{user.name}</h4>
+              <p>Administrator</p>
+            </div>
+
           </div>
+
+          {showProfile && (
+            <div className="profile-dropdown">
+
+              <h4>{user.name}</h4>
+              <p>Administrator</p>
+
+              <hr />
+
+              <div className="profile-item">👤 My Profile</div>
+
+              <div className="profile-item">⚙️ Settings</div>
+
+              <div className="profile-item">🔒 Change Password</div>
+
+              <div className="profile-item">🌙 Dark Mode</div>
+
+              <div
+                className="profile-item logout"
+                onClick={handleLogout}
+              >
+                🚪 Logout
+              </div>
+
+            </div>
+          )}
 
         </div>
 

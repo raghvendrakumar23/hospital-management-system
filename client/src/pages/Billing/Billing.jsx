@@ -1,7 +1,11 @@
 import "./Billing.css";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { useState } from "react";
-import { FaPlus, FaTrash } from "react-icons/fa";
+import {
+  FaPlus,
+  FaTrash,
+  FaFileInvoice,
+} from "react-icons/fa";
 
 export default function Billing() {
   const [bills, setBills] = useState([
@@ -10,6 +14,7 @@ export default function Billing() {
       patient: "Rahul Kumar",
       treatment: "Heart Checkup",
       amount: 5000,
+      payment: "Cash",
       status: "Paid",
     },
     {
@@ -17,6 +22,7 @@ export default function Billing() {
       patient: "Priya Singh",
       treatment: "MRI Scan",
       amount: 8000,
+      payment: "UPI",
       status: "Pending",
     },
   ]);
@@ -25,6 +31,7 @@ export default function Billing() {
     patient: "",
     treatment: "",
     amount: "",
+    payment: "Cash",
     status: "Pending",
   });
 
@@ -36,6 +43,7 @@ export default function Billing() {
   };
 
   const handleAdd = () => {
+
     if (!form.patient || !form.treatment || !form.amount) {
       alert("Please fill all fields");
       return;
@@ -53,8 +61,10 @@ export default function Billing() {
       patient: "",
       treatment: "",
       amount: "",
+      payment: "Cash",
       status: "Pending",
     });
+
   };
 
   const handleDelete = (id) => {
@@ -94,6 +104,19 @@ export default function Billing() {
             value={form.amount}
             onChange={handleChange}
           />
+          <select
+            name="payment"
+            value={form.payment}
+            onChange={handleChange}
+          >
+            <option value="Cash">💵 Cash</option>
+            <option value="UPI">📱 UPI</option>
+            <option value="Credit Card">💳 Credit Card</option>
+            <option value="Debit Card">💳 Debit Card</option>
+            <option value="Net Banking">🏦 Net Banking</option>
+            <option value="Insurance">🏥 Insurance</option>
+          </select>
+
 
           <select
             name="status"
@@ -116,6 +139,7 @@ export default function Billing() {
               <th>Patient</th>
               <th>Treatment</th>
               <th>Amount</th>
+              <th>Payment</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -125,17 +149,45 @@ export default function Billing() {
             {bills.map((bill) => (
               <tr key={bill.id}>
                 <td>{bill.patient}</td>
+
                 <td>{bill.treatment}</td>
+
                 <td>₹ {bill.amount}</td>
-                <td>{bill.status}</td>
+
+                <td>{bill.payment}</td>
 
                 <td>
+                  <span
+                    className={
+                      bill.status === "Paid"
+                        ? "status paid"
+                        : "status pending"
+                    }
+                  >
+                    {bill.status}
+                  </span>
+                </td>
+
+                <td>
+
+                  <button
+                    className="invoice-btn"
+                    onClick={() =>
+                      alert(
+                        `Invoice Generated!\n\nPatient: ${bill.patient}\nTreatment: ${bill.treatment}\nAmount: ₹${bill.amount}\nPayment: ${bill.payment}`
+                      )
+                    }
+                  >
+                    <FaFileInvoice />
+                  </button>
+
                   <button
                     className="delete-btn"
                     onClick={() => handleDelete(bill.id)}
                   >
                     <FaTrash />
                   </button>
+
                 </td>
               </tr>
             ))}
