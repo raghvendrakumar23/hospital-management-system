@@ -1,4 +1,4 @@
-import "./Services.css";
+import "./services.css";
 import {
   FaUserMd,
   FaHeartbeat,
